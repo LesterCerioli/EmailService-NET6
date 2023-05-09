@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\source\Infrastructure\Delirio.Infrastructure\Delirio.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\source\Modules\Delirio.Modules.Email.Application\Delirio.Modules.Email.Application.csproj" />
   </ItemGroup>
 
 </Project>
