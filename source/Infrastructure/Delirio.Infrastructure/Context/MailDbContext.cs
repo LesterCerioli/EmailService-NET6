@@ -1,6 +1,10 @@
+using Delirio.Infrastructure.Mappings.EFCore;
+using Delirio.Module.Infrastructure.Mappings.EFCore;
 using Delirio.Modules.Email.Domain.Models;
 using Delirio.Modules.Email.Domain.Modules;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
+using NetDevPack.Messaging;
 
 namespace Delirio.Infrastructure.Context
 {
@@ -35,17 +39,47 @@ namespace Delirio.Infrastructure.Context
                     e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
-            modelBuilder.ApplyConfiguration(new PacienteMap());
-            modelBuilder.ApplyConfiguration(new TokenRequestMap());
+            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new MessageQueueMap());
+            modelBuilder.ApplyConfiguration(new MessageRecipientMap());
+            modelBuilder.ApplyConfiguration(new OrderEmailMap());
+            modelBuilder.ApplyConfiguration(new OrderMap());
+            modelBuilder.ApplyConfiguration(new PaymentMachineMap());
+            modelBuilder.ApplyConfiguration(new StoreMap());
 
-            modelBuilder.Entity<Paciente>(c =>
+            modelBuilder.Entity<Customer>(c =>
             {
-                c.ToTable("Pacientes");
+                c.ToTable("Customers");
             });
 
-            modelBuilder.Entity<RequestToken>(c =>
+            modelBuilder.Entity<MessageQueue>(c =>
             {
-                c.ToTable("RequestToken");
+                c.ToTable("MessageQueues");
+            });
+
+            modelBuilder.Entity<MessageRecipient>(c =>
+            {
+                c.ToTable("MessageRecipients");
+            });
+
+            modelBuilder.Entity<OrderEmail>(c =>
+            {
+                c.ToTable("OrderEmails");
+            });
+
+            modelBuilder.Entity<Order>(c =>
+            {
+                c.ToTable("Orders");
+            });
+
+            modelBuilder.Entity<PaymentMachine>(c =>
+            {
+                c.ToTable("PaymentMachines");
+            });
+
+            modelBuilder.Entity<Store>(c =>
+            {
+                c.ToTable("Stores");
             });
 
 
