@@ -8,7 +8,10 @@ namespace Delirio.Infrastructure.Mappings.EFCore
     {
         public void Configure(EntityTypeBuilder<MessageQueue> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(d => d.Id);
+
+            builder.Property(d => d.Id)
+               .HasColumnName("Id");
         }
     }
 }

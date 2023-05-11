@@ -15,15 +15,11 @@ namespace Delirio.Modules.Email.Domain.Models
 
         }
         
-        public string?  CustomerFirstName { get; set; }
-
-        public string? CustomerMiddleName { get; set; }
-
-        public string? CustomerFirstLastName { get; set; }
+        public string?  CustomerName { get; set; }
 
         public Cpf  Cpf { get; private set; }
         
-        public DataLog2 DataLog { get; private set; }
+        public DataLog DataLog { get; private set; }
 
         public IReadOnlyCollection<Order> Orders => _orders.AsReadOnly();
 
