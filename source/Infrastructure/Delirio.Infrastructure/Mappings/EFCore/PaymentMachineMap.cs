@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Delirio.Infrastructure.Mappings.EFCore
 {
-    public class PaymentMachineMap : IEntityTypeConfiguration<PaymentMachine>
+    public class PaymentMachineMap : IEntityTypeConfiguration<Payment>
     {
-        public void Configure(EntityTypeBuilder<PaymentMachine> builder)
+        public void Configure(EntityTypeBuilder<Payment> builder)
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,7 @@ namespace Delirio.Modules.Email.Domain.Models
     public class Store : Entity, IAggregateRoot
     {
         
-        private readonly List<PaymentMachine> _paymentMachines = new List<PaymentMachine>();
+        private readonly List<Payment> _paymentMachines = new List<Payment>();
         
         public Store(Guid id, string storeName)
         {
@@ -22,9 +22,9 @@ namespace Delirio.Modules.Email.Domain.Models
 
         public string? SocialReason {get; private set;}
 
-        public PaymentMachine PaymentMachines {get; private set;}
+        public Payment PaymentMachines {get; private set;}
         
-        public IReadOnlyCollection<PaymentMachine> PaymentMchines => _paymentMachines.AsReadOnly();
+        public IReadOnlyCollection<Payment> PaymentMchines => _paymentMachines.AsReadOnly();
 
         public string? District {get; private set;}
 
