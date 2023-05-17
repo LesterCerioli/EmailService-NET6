@@ -30,7 +30,7 @@ namespace Delirio.Modules.Email.Domain.Models
 
         public IReadOnlyCollection<Customer> Customers { get { return _customers.ToArray(); } }
         
-        public DateTime OrderDate { get; set; }
+        public DateTime OrderDate { get; private set; }
 
         public IReadOnlyCollection<Store> Stores { get { return _stores.ToArray(); } }
         
