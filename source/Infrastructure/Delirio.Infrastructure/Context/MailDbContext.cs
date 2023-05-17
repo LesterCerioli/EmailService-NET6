@@ -26,7 +26,7 @@ namespace Delirio.Infrastructure.Context
 
         public DbSet<OrderEmail> OrderEmails {get; set;}
 
-        public DbSet<PaymentMachine> PaymentMachines {get; set;}
+        public DbSet<Payment> PaymentMachines {get; set;}
 
         public DbSet<Store> Stores {get; set;}
 
@@ -72,7 +72,7 @@ namespace Delirio.Infrastructure.Context
                 c.ToTable("Orders");
             });
 
-            modelBuilder.Entity<PaymentMachine>(c =>
+            modelBuilder.Entity<Payment>(c =>
             {
                 c.ToTable("PaymentMachines");
             });
