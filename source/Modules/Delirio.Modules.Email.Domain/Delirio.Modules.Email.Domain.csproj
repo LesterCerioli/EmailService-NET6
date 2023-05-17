@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Contracts\IRecipientMessageRepository.cs~RF7fc5f6f.TMP" />
+    <None Remove="Models\PaymentStatus.cs~RFc691a61.TMP" />
   </ItemGroup>
 
   <ItemGroup>
