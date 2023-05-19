@@ -8,7 +8,44 @@ namespace Delirio.Module.Infrastructure.Mappings.EFCore
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(c => c.Id); // Set the primary key
+
+            // Map properties to columns
+            builder.Property(c => c.Id)
+                .HasColumnName("Id")
+                .ValueGeneratedNever();
+
+            builder.Property(c => c.CustomerFirstName)
+                .HasColumnName("FirstName")
+                .HasMaxLength(100);
+
+            builder.Property(c => c.CustomerMiddleName)
+                .HasColumnName("MiddleName")
+                .HasMaxLength(100);
+
+            builder.Property(c => c.CustomerFirstLastName)
+                .HasColumnName("FirstLastName")
+                .HasMaxLength(100);
+
+            builder.OwnsOne(p => p.Cpf)
+                .Property(p => p.CPFNumber);
+
+            builder.OwnsOne(p => p.DataLog)
+                .Property(p => p.DataCriacao);
+
+            builder.OwnsOne(p => p.DataLog)
+                .Property(p => p.DataAtualizacao);
+
+            builder.Property(c => c.Email)
+                .HasColumnName("Email")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            // Configure relationships
+            builder.HasMany(c => c.Orders)
+                .WithOne()
+                .HasForeignKey("CustomerId") // Replace "CustomerId" with the actual foreign key property name in the Order class
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

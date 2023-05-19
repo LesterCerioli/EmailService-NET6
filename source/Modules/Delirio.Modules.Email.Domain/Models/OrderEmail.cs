@@ -23,5 +23,7 @@ namespace Delirio.Modules.Email.Domain.Modules
 
         public IReadOnlyCollection<Store> Stores { get { return _stores.ToArray(); } }
 
+        public Guid StoreId { get; set; }
+
     }
 }

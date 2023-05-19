@@ -8,7 +8,20 @@ namespace Delirio.Infrastructure.Mappings.EFCore
     {
         public void Configure(EntityTypeBuilder<OrderEmail> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(o => o.Id);
+
+            builder.Property(o => o.Email)
+                .HasMaxLength(200);
+
+            builder.HasOne(o => o.Store)
+                .WithMany()
+                .HasForeignKey(o => o.StoreId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(o => o.Stores)
+                .WithOne()
+                .HasForeignKey("OrderEmailId")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

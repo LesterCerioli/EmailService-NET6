@@ -26,6 +26,8 @@ namespace Delirio.Modules.Email.Domain.Models
 
         public string? Body { get; private set; }
 
+        public Guid OrderId { get; private set; }
+
         
         //Data Envio
         public DateTimeOffset? SendingDate { get; private set; }
