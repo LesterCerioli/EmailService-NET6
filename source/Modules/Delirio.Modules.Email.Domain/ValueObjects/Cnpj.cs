@@ -5,25 +5,26 @@ namespace Delirio.Modules.Email.Domain.ValueObjects
     public class Cnpj : ValueObject
     {
         
-        public Cnpj(string cnpjNumero)
+
+        public Cnpj(string cnpjNuber)
         {
-            CnpjNumero = cnpjNumero;
+            CnpjNumber = cnpjNuber;
         }
 
-        public string CnpjNumero { get; private set; }
+        public string? CnpjNumber { get; private set; }
 
 
 
-        private static bool IsCnpj(string cnpjNumero)
+        private static bool IsCnpj(string cnpjNumber)
         {
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-            cnpjNumero = cnpjNumero.Trim().Replace(".", "").Replace("-", "").Replace("/", "");
-            if (cnpjNumero.Length != 14)
+            cnpjNumber = cnpjNumber.Trim().Replace(".", "").Replace("-", "").Replace("/", "");
+            if (cnpjNumber.Length != 14)
                 return false;
 
-            string tempCnpj = cnpjNumero.Substring(0, 12);
+            string tempCnpj = cnpjNumber.Substring(0, 12);
             int soma = 0;
 
             for (int i = 0; i < 12; i++)
@@ -49,7 +50,7 @@ namespace Delirio.Modules.Email.Domain.ValueObjects
 
             digito = digito + resto.ToString();
 
-            return cnpjNumero.EndsWith(digito);
+            return cnpjNumber.EndsWith(digito);
 
         }
         
