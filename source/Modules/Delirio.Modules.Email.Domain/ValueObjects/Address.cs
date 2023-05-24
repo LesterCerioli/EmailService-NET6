@@ -19,6 +19,8 @@ namespace Delirio.Modules.Email.Domain.ValueObjects
         [MaxLength(30)]
         public string? Complement { get; private set; }
 
+        public string? District { get; private set; }
+
         [MaxLength(300)]
         public string? City { get; private set; }
 
@@ -28,7 +30,6 @@ namespace Delirio.Modules.Email.Domain.ValueObjects
         [MaxLength(250)]
         public string? Country { get; private set; }
 
-        [MaxLength(20)]
         public string? PostalCode { get; private set; }
 
         protected override IEnumerable<object> GetEqualityComponents()

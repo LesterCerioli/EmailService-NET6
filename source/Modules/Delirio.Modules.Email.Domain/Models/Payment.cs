@@ -15,6 +15,12 @@ namespace Delirio.Modules.Email.Domain.Models
             _orders = new List<Order>();
         }
 
+        public Payment() {}
+
+        public PaymentMachine PaymentMachine { get; set; }
+
+        public Guid PaymentmachineId {get; private set;}
+        
         [MaxLength(300)]
         public string? AuthorizationCode {get; private set;}
 
