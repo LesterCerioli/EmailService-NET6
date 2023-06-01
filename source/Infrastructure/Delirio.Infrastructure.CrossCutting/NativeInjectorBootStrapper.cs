@@ -21,10 +21,11 @@ namespace Delirio.Infrastructure.CrossCutting
             services.AddScoped<OrderEmailRepository>();
             services.AddScoped<OrderRepository>();
             services.AddScoped<PaymentRepository>();
+            services.AddScoped<PaymentMachineRepository>();
             services.AddScoped<MailDbContext>();
 
             // Application
-            services.AddScoped<IPacienteService, PacienteService>();
+            //services.AddScoped<IPacienteService, PacienteService>();
 
         }
     }

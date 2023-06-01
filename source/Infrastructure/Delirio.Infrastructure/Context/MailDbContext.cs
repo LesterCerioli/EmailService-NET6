@@ -30,6 +30,8 @@ namespace Delirio.Infrastructure.Context
 
         public DbSet<Store> Stores {get; set;}
 
+        public DbSet<PaymentMachine> PaymentMachines { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<ValidationResult>();

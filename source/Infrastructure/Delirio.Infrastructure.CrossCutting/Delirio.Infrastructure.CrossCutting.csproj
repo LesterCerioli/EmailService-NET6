@@ -25,4 +25,8 @@
     <ProjectReference Include="..\Delirio.Infrastructure\Delirio.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ConfigurationSettings\" />
+  </ItemGroup>
+
 </Project>

@@ -22,29 +22,64 @@ namespace Delirio.Infrastructure.Repositories
             DbSet = context.Customers;
         }
 
-        public async  Task Add(Customer customer)
+
+
+        public async Task<IEnumerable<Customer>> GetAll()
         {
-            throw new NotImplementedException();
+            return await DbSet.ToListAsync();
+        }
+
+        public async Task Add(Customer customer)
+        {
+            await Task.Run(() =>
+            {
+                DbSet.Add(customer);
+                Db.SaveChanges();
+            });
+
+
         }
 
         public async Task<Customer> GetByCpf(Cpf cpf)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Cpf.CPFNumber == cpf.CPFNumber);
         }
 
-        public async Task<Customer> GetByCustomerName(string customerName)
+        public async Task<Customer> GetByLastName(string customerLastName)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CustomerLastName == customerLastName);
+        }
+
+        public async Task<Customer> GetByMiddleName(string customerMiddleName)
+        {
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CustomerMiddleName == customerMiddleName);
+        }
+
+
+        public async Task<Customer> GetByCustomerFirstName(string customerFirstName)
+        {
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CustomerFirstName == customerFirstName);
         }
 
         public void Remove(Customer customer)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(customer);
         }
 
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
+            DbSet.Update(customer);
         }
+
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+
+
+
+
+
+
     }
 }

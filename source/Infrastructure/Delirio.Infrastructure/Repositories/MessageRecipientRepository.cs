@@ -22,29 +22,40 @@ namespace Delirio.Infrastructure.Repositories
         }
 
 
+        public async Task<MessageRecipient> GetByRecipientMail(string recipientMail)
+        {
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.RecipientMail == recipientMail);
+        }
+
         public async Task Add(MessageRecipient messageRecipient)
         {
-            throw new NotImplementedException();
+            await Task.Run(() =>
+            {
+                DbSet.Add(messageRecipient);
+                Db.SaveChanges();
+            });
         }
 
         public async Task<IEnumerable<MessageRecipient>> GetAll()
         {
-            throw new NotImplementedException();
+            return await DbSet.ToListAsync();
         }
 
-        public async Task<MessageRecipient> GetByRecipientMail(string recipientMail)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void Remove(MessageRecipient messageRecipient)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(messageRecipient);
         }
 
         public void Update(MessageRecipient messageRecipient)
         {
-            throw new NotImplementedException();
+            DbSet.Update(messageRecipient);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

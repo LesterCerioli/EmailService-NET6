@@ -7,8 +7,12 @@ namespace Delirio.Modules.Email.Domain.Contracts
     {
         Task<Customer> GetByCpf(Cpf cpf);
         
-        Task<Customer> GetByCustomerName(string customerName);
+        Task<Customer> GetByCustomerFirstName(string customerFirstName);
 
+        Task<Customer> GetByMiddleName(string customerMiddleName);
+
+        Task<Customer> GetByLastName(string customerLastName);
+        
         Task Add(Customer customer);
 
         void Remove(Customer customer);

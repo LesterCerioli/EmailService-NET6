@@ -25,27 +25,37 @@ namespace Delirio.Infrastructure.Repositories
 
         public async Task Add(OrderEmail orderEmail)
         {
-            throw new NotImplementedException();
+            await Task.Run(() =>
+            {
+                DbSet.Add(orderEmail);
+                Db.SaveChanges();
+            });
         }
 
         public async Task<IEnumerable<OrderEmail>> GetAll()
         {
-            throw new NotImplementedException();
+            return await DbSet.ToListAsync();
         }
 
         public async Task<OrderEmail> GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Email == email);
+
         }
 
         public void Remove(OrderEmail orderEmail)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(orderEmail);
         }
 
         public void Update(OrderEmail orderEmail)
         {
-            throw new NotImplementedException();
+            DbSet.Update(orderEmail);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

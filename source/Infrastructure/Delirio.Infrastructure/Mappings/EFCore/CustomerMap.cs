@@ -16,15 +16,15 @@ namespace Delirio.Module.Infrastructure.Mappings.EFCore
                 .ValueGeneratedNever();
 
             builder.Property(c => c.CustomerFirstName)
-                .HasColumnName("FirstName")
+                .HasColumnName("CustomerFirstName")
                 .HasMaxLength(100);
 
             builder.Property(c => c.CustomerMiddleName)
-                .HasColumnName("MiddleName")
+                .HasColumnName("CustomerMiddleName")
                 .HasMaxLength(100);
 
-            builder.Property(c => c.CustomerFirstLastName)
-                .HasColumnName("FirstLastName")
+            builder.Property(c => c.CustomerLastName)
+                .HasColumnName("CustomerLastName")
                 .HasMaxLength(100);
 
             builder.OwnsOne(p => p.Cpf)

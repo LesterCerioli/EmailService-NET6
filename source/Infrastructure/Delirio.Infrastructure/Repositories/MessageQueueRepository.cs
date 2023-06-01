@@ -1,6 +1,7 @@
 ﻿using Delirio.Infrastructure.Context;
 using Delirio.Modules.Email.Domain.Contracts;
 using Delirio.Modules.Email.Domain.Models;
+using Delirio.Modules.Email.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,11 @@ namespace Delirio.Infrastructure.Repositories
 
         public async Task Add(MessageQueue messageQueue)
         {
-            throw new NotImplementedException();
+            await Task.Run(() =>
+            {
+                DbSet.Add(messageQueue);
+                Db.SaveChanges();
+            });
         }
 
         public async Task<MessageQueue> GetBySendingDate(DateTimeOffset? sendingDate)
@@ -35,22 +40,27 @@ namespace Delirio.Infrastructure.Repositories
 
         public async Task<MessageQueue> GetByShotsNumber(string shotsNumber)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ShotsNumber == shotsNumber);
         }
 
         public async Task<MessageQueue> GetByTitle(string title)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Title == title); ;
         }
 
         public void Remove(MessageQueue messageQueue)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(messageQueue);
         }
 
         public void Update(MessageQueue messageQueue)
         {
-            throw new NotImplementedException();
+            DbSet.Update(messageQueue);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

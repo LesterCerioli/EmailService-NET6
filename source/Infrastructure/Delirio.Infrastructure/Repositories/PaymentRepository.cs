@@ -29,32 +29,36 @@ namespace Delirio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Payment>> GetAll()
         {
-            throw new NotImplementedException();
+            return await DbSet.ToListAsync();
         }
 
         public async Task<Payment> GetByAuthorization(string authorizationCode)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AuthorizationCode == authorizationCode);
         }
 
         public async Task<Payment> GetByPaymentOrder(string paymentOrder)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.PaymentOrder == paymentOrder);
         }
 
         public async Task<Payment> GetByPaymentStatus(PaymentStatus paymentStatus)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.paymentStatus == paymentStatus);
         }
 
-        public void Remove(Payment paymentMachine)
+        public void Remove(Payment payment)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(payment);
         }
 
-        public void Update(Payment paymentMachine)
+        public void Update(Payment payment)
         {
-            throw new NotImplementedException();
+            DbSet.Update(payment);
+        }
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }
