@@ -22,9 +22,14 @@ namespace Delirio.Infrastructure.Repositories
         }
 
 
-        public async Task Add(Payment paymentMachine)
+        public async Task Add(Payment payment)
         {
-            throw new NotImplementedException();
+            await Task.Run(() =>
+            {
+                DbSet.Add(payment);
+                Db.SaveChanges();
+
+            });
         }
 
         public async Task<IEnumerable<Payment>> GetAll()
