@@ -26,9 +26,11 @@ namespace Delirio.Infrastructure.Context
 
         public DbSet<OrderEmail> OrderEmails {get; set;}
 
-        public DbSet<Payment> PaymentMachines {get; set;}
+        public DbSet<Payment> Payments {get; set;}
 
         public DbSet<Store> Stores {get; set;}
+
+        public DbSet<PaymentMachine> PaymentMachines { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

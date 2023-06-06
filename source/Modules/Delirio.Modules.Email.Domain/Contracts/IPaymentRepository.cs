@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Delirio.Modules.Email.Domain.Contracts
 {
-    public interface IPayment
+    public interface IPaymentRepository
     {
         Task<Payment> GetByAuthorization(string authorizationCode);
 
@@ -18,10 +18,10 @@ namespace Delirio.Modules.Email.Domain.Contracts
 
         Task<IEnumerable<Payment>> GetAll();
 
-        Task Add(Payment paymentMachine);
+        Task Add(Payment payment);
 
-        void Update(Payment paymentMachine);
+        void Update(Payment payment);
 
-        void Remove(Payment paymentMachine);
+        void Remove(Payment payment);
     }
 }

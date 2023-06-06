@@ -4,7 +4,7 @@ namespace Delirio.Modules.Email.Domain.Contracts
 {
     public interface IMessageQueueRepository
     {
-        Task<MessageQueue> GetBySendingDate(DateOnly sendingDate);
+        Task<MessageQueue> GetBySendingDate(DateTimeOffset? sendingDate);
 
         Task<MessageQueue> GetByShotsNumber(string shotsNumber);
 
