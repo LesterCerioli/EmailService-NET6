@@ -19,6 +19,16 @@ namespace Delirio.Infrastructure.Mappings.EFCore
                 .HasColumnType("varchar(100)")
                 .IsRequired();
 
+            builder.Property(w => w.CreditCard)
+                .HasColumnName("CreditCard")
+                .HasColumnType("varchar(15")
+                .IsRequired();
+
+            builder.Property(w => w.Visanet)
+                .HasColumnName("Visanet")
+                .HasColumnType("varcha(30)")
+                .IsRequired();
+
             builder.OwnsOne(p => p.Address)
                 .Property(p => p.Street).HasColumnName("Street");
 

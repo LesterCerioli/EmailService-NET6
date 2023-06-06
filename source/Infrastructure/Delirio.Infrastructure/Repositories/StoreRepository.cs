@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delirio.Modules.Email.Application.ViewModels
+namespace Delirio.Infrastructure.Repositories
 {
-    internal class RecipientMessageViewModel
+    public class StoreRepository
     {
     }
 }
