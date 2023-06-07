@@ -17,12 +17,12 @@ namespace Delirio.Infrastructure.CrossCutting.DependecyInjector
                 options.CustomSchemaIds(type => type.ToString());
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
                 {
-                    Title = "Aché Pacientes Api DotNet Core version 1.0",
+                    Title = "Delírio Tropical Email Api version 1.0",
                     Version = "v1",
                     Contact = new Microsoft.OpenApi.Models.OpenApiContact()
                     {
-                        Email = "ache@ache.com.br",
-                        Name = "Aché"
+                        Email = "adre@delirio.com.br",
+                        Name = "Delirio"
                     }
                 });
             });
