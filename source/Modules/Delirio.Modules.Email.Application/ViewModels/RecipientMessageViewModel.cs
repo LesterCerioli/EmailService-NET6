@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delirio.Infrastructure.Mappings.EFCore
+namespace Delirio.Modules.Email.Application.ViewModels
 {
-    public class RecipientMessageMap
+    internal class RecipientMessageViewModel
     {
     }
 }

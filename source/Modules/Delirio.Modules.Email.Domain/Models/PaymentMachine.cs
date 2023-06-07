@@ -18,26 +18,23 @@ namespace Delirio.Modules.Email.Domain.Models
         private readonly List<Order> _orders;
         public readonly object StoreId;
 
-        public PaymentMachine(Guid id, string visanet, string creditCard, string ipAddress)
+        public PaymentMachine(Guid id, string visanet)
         {
             Id = id;
             Visanet = visanet;
             _payments = new List<Payment>();
-            CreditCard = CreditCard;
-            IpAddress = ipAddress;
             
         }
         public PaymentMachine() {}
 
-        public string? IpAddress { get; private set; }
-
         public Store Store { get; set; }
 
-        [MaxLength(30)]
         public string? Visanet {get; private set;}
-        [Required(ErrorMessage = "O NÚMERO DP CARTÃO deve ser informado")]
 
-        
+        [MaxLength(100)]
+        [Required(ErrorMessage = "O IP deve ser informado")]
+        public string? IpAddress { get; private set; }
+
         public Address Address { get; private set; }
 
         public int Amount { get; private set; }
@@ -47,9 +44,7 @@ namespace Delirio.Modules.Email.Domain.Models
 
         [MaxLength(300)]
         public string? CodeAuthorization { get; private set; }
-
         
-
         public Guid PaymentId { get; set; }
 
                

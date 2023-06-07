@@ -8,8 +8,5 @@ namespace Delirio.Modules.Email.Application.ViewModels
 {
     public class MessageRecipientViewModel
     {
-        public Guid Id { get; private set; }
-
-        public string? RecipientMail { get; set; }
     }
 }
