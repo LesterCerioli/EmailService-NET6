@@ -4,13 +4,13 @@ using Delirio.Modules.Email.Domain.Models;
 using Delirio.Modules.Email.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Delirio.Infrastructure.Repositories
 {
+
     public class StoreRepository : IStoreRepository
     {
 
@@ -49,12 +49,19 @@ namespace Delirio.Infrastructure.Repositories
 
         public void Remove(Store store)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(store);
         }
 
         public void Update(Store store)
         {
-            throw new NotImplementedException();
+            DbSet.Update(store);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
+
+    
 }
