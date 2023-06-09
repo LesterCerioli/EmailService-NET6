@@ -1,6 +1,9 @@
 ﻿using Delirio.Modules.Email.Application.Servoces.Contracts;
 using Delirio.Modules.Email.Domain.Models;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.Extensions.Configuration;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +26,24 @@ namespace Delirio.Modules.Email.Application.Servoces.Implementations.Smtp
 
         public async Task SendEmailAsync(string recipient, string subject, string body)
         {
-            throw new NotImplementedException();
+            var message = new MimeMessage();
+            message.From.AddMailboxAddress("Delirio Encomendas", _smtpUsername));
+            message.ToAdd(new MailboxAddress("", recipient));
+            message.Subject = subject;
+
+            var bodyBuilder = new BodyBuilder();
+            bodyBuilder.TextBody = body;
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync(_smtpServer, _smtpPort, SecureSocketOptions.StartTls);
+                await client.AuthenticateAsync(_smtpUsername, _smtpPassword);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
+
         }
     }
 }
