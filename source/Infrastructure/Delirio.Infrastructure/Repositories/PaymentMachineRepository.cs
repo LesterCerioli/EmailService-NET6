@@ -40,27 +40,32 @@ namespace Delirio.Infrastructure.Repositories
 
         public async Task<PaymentMachine> GetByCreditCard(string creditCard)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CreditCard == creditCard);
         }
 
         public async Task<PaymentMachine> GetByIpAddress(string ipAddress)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.IpAddress == ipAddress);
         }
 
         public async Task<PaymentMachine> GetByVisanet(string visanet)
         {
-            throw new NotImplementedException();
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Visanet == visanet);
         }
 
         public void Remove(PaymentMachine paymentMachine)
         {
-            throw new NotImplementedException();
+            DbSet.Remove(paymentMachine);
         }
 
         public void Update(PaymentMachine paymentMachine)
         {
-            throw new NotImplementedException();
+            DbSet.Update(paymentMachine);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

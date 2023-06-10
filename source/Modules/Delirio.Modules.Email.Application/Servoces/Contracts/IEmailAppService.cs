@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Delirio.Modules.Email.Application.Servoces.Contracts
 {
-    public interface IEmailSenderAppService
+    public interface IEmailAppService
     {
-        Task SendEmailAsync(string recipient, string subject, string body);
+        Task SendOrderConfirmationEmail(string recipientEmail, string orderNumber, decimal orderAmount, string deliveryAddress, string paymentStatus);
     }
 }
