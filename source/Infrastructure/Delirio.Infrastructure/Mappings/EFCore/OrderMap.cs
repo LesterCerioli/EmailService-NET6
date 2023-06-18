@@ -10,8 +10,7 @@ namespace Delirio.Infrastructure.Mappings.EFCore
         {
             builder.HasKey(o => o.Id);
 
-            builder.Property(o => o.OrderBy)
-                .HasMaxLength(255);
+            
 
             builder.Property(o => o.TotalValue)
                 .HasColumnType("decimal(18,2)")

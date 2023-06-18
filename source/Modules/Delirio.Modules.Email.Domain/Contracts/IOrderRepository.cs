@@ -9,7 +9,7 @@ namespace Delirio.Modules.Email.Domain.Contracts
 {
     public interface IOrderRepository
     {
-        Task<Order> GetByOrderBy(string orderBy);
+        Task<Order> GetByOrder(int? orderNumber);
 
         Task<Order> GetByOrderDaet(DateTime orderdate);
 

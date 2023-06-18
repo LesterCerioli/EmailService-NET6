@@ -28,7 +28,7 @@ namespace Delirio.Module.Infrastructure.Mappings.EFCore
                 .HasMaxLength(100);
 
             builder.OwnsOne(p => p.Cpf)
-                .Property(p => p.CPFNumber);
+                .Property(p => p.CpfNumber);
 
             builder.OwnsOne(p => p.DataLog)
                 .Property(p => p.DataCriacao);

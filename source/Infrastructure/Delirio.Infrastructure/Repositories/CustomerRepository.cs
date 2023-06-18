@@ -42,7 +42,7 @@ namespace Delirio.Infrastructure.Repositories
 
         public async Task<Customer> GetByCpf(Cpf cpf)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Cpf.CPFNumber == cpf.CPFNumber);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Cpf.CpfNumber == cpf.CpfNumber);
         }
 
         public async Task<Customer> GetByLastName(string customerLastName)
@@ -76,10 +76,9 @@ namespace Delirio.Infrastructure.Repositories
             Db.Dispose();
         }
 
-
-
-
-
-
+        public Task<Customer> GetByEmail(string customerEmail)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

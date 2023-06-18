@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delirio.Modules.Email.Appli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{8241ABEE-CAE0-47E9-8ED1-7AF622AE4631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delirio.Workers.Email", "source\Workers\Delirio.Workers.Email\Delirio.Workers.Email.csproj", "{FCF21C95-5181-46FD-8660-2723F93FA9C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delirio.Workers.Email", "source\Workers\Delirio.Workers.Email\Delirio.Workers.Email.csproj", "{FCF21C95-5181-46FD-8660-2723F93FA9C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,5 +93,8 @@ Global
 		{8A7EDD4C-D19D-4CD5-A89E-C6D5002F4201} = {794EE565-B281-41EA-A30B-66683018C88A}
 		{8241ABEE-CAE0-47E9-8ED1-7AF622AE4631} = {665F1A9D-2A5D-41D2-A307-2FD2913F0C56}
 		{FCF21C95-5181-46FD-8660-2723F93FA9C2} = {8241ABEE-CAE0-47E9-8ED1-7AF622AE4631}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5529B0E5-8B3D-47E0-AAB7-BD773BCD3281}
 	EndGlobalSection
 EndGlobal

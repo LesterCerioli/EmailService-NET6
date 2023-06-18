@@ -5,10 +5,12 @@ namespace Delirio.Modules.Email.Domain.Models
 {
     public class Customer : Entity, IAggregateRoot
     {
+
+
         private readonly List<Order> _orders = new List<Order>();
 
-        public Customer(string? customerFirstName, 
-            string? customerMiddleName, string? customerLastName, 
+        public Customer(string? customerFirstName,
+            string? customerMiddleName, string? customerLastName,
             Cpf cpf, DataLog2 dataLog, string? email)
         {
             CustomerFirstName = customerFirstName;
@@ -20,21 +22,21 @@ namespace Delirio.Modules.Email.Domain.Models
             _orders = new List<Order>();
         }
 
-        public string?  CustomerFirstName { get; set; }
+        public string? CustomerFirstName { get; set; }
 
         public string? CustomerMiddleName { get; set; }
 
         public string? CustomerLastName { get; set; }
 
-        public Cpf  Cpf { get; private set; }
-        
+        public Cpf Cpf { get; private set; }
+
         public DataLog2 DataLog { get; private set; }
 
         public string? Email { get; private set; }
 
         public IReadOnlyCollection<Order> Orders => _orders.AsReadOnly();
 
-        
+
 
         public void AddOrder(Order order)
         {
@@ -45,6 +47,6 @@ namespace Delirio.Modules.Email.Domain.Models
         {
             _orders.Remove(order);
         }
-        
+
     }
 }

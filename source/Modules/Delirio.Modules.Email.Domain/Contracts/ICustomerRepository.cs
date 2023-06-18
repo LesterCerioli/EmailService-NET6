@@ -12,6 +12,8 @@ namespace Delirio.Modules.Email.Domain.Contracts
         Task<Customer> GetByMiddleName(string customerMiddleName);
 
         Task<Customer> GetByLastName(string customerLastName);
+
+        Task<Customer> GetByEmail(string customerEmail);
         
         Task Add(Customer customer);
 

@@ -39,11 +39,7 @@ namespace Delirio.Infrastructure.Repositories
             return await DbSet.ToListAsync();
         }
 
-        public async Task<Order> GetByOrderBy(string orderBy)
-        {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.OrderBy == orderBy);
-        }
-
+        
         public async Task<Order> GetByOrderDaet(DateTime orderdate)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.OrderDate == orderdate);
@@ -64,6 +60,11 @@ namespace Delirio.Infrastructure.Repositories
         public void Dispose()
         {
             Db.Dispose();
+        }
+
+        public Task<Order> GetByOrder(int? orderNumber)
+        {
+            throw new NotImplementedException();
         }
     }
 }

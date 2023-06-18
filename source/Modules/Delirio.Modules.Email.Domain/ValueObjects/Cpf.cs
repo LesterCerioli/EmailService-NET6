@@ -19,7 +19,7 @@ namespace Delirio.Modules.Email.Domain.ValueObjects
         {
         }
 
-        public string CPFNumber
+        public string CpfNumber
         {
             get { return _cpfNumber; }
             set { _cpfNumber = value; }
