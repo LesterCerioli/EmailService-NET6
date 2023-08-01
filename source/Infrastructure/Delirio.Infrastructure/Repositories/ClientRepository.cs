@@ -11,64 +11,64 @@ using System.Threading.Tasks;
 
 namespace Delirio.Infrastructure.Repositories
 {
-    public class CustomerRepository : IClientRepository
+    public class ClientRepository : IClientRepository
     {
         protected readonly MailDbContext Db;
-        protected readonly DbSet<Customer> DbSet;
+        protected readonly DbSet<Client> DbSet;
 
-        public CustomerRepository(MailDbContext context)
+        public ClientRepository(MailDbContext context)
         {
             Db = context;
-            DbSet = context.Customers;
+            DbSet = context.Clients;
         }
 
 
 
-        public async Task<IEnumerable<Customer>> GetAll()
+        public async Task<IEnumerable<Client>> GetAll()
         {
             return await DbSet.ToListAsync();
         }
 
-        public async Task Add(Customer customer)
+        public async Task Add(Client client)
         {
             await Task.Run(() =>
             {
-                DbSet.Add(customer);
+                DbSet.Add(client);
                 Db.SaveChanges();
             });
 
 
         }
 
-        public async Task<Customer> GetByCpf(Cpf cpf)
+        public async Task<Client> GetByCpf(Cpf cpf)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Cpf.CPFNumber == cpf.CPFNumber);
         }
 
-        public async Task<Customer> GetByLastName(string customerLastName)
+        public async Task<Client> GetByLastName(string customerLastName)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CustomerLastName == customerLastName);
         }
 
-        public async Task<Customer> GetByMiddleName(string customerMiddleName)
+        public async Task<Client> GetByMiddleName(string customerMiddleName)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CustomerMiddleName == customerMiddleName);
         }
 
 
-        public async Task<Customer> GetByCustomerFirstName(string customerFirstName)
+        public async Task<Client> GetByCustomerFirstName(string customerFirstName)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CustomerFirstName == customerFirstName);
         }
 
-        public void Remove(Customer customer)
+        public void Remove(Client client)
         {
-            DbSet.Remove(customer);
+            DbSet.Remove(client);
         }
 
-        public void Update(Customer customer)
+        public void Update(Client client)
         {
-            DbSet.Update(customer);
+            DbSet.Update(client);
         }
 
         public void Dispose()
