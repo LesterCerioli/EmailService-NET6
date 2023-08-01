@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Delirio.Module.Infrastructure.Mappings.EFCore
 {
-    public class CustomerMap : IEntityTypeConfiguration<Customer>
+    public class ClientMap : IEntityTypeConfiguration<Client>
     {
-        public void Configure(EntityTypeBuilder<Customer> builder)
+        public void Configure(EntityTypeBuilder<Client> builder)
         {
             builder.HasKey(c => c.Id); // Set the primary key
 

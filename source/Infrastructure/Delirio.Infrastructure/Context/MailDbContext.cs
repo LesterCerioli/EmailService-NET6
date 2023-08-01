@@ -16,7 +16,7 @@ namespace Delirio.Infrastructure.Context
             ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Client> Clients { get; set; }
         
         public DbSet<MessageQueue> MessageQueues { get; set; }
 
@@ -41,7 +41,7 @@ namespace Delirio.Infrastructure.Context
                     e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
-            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new ClientMap());
             modelBuilder.ApplyConfiguration(new MessageQueueMap());
             modelBuilder.ApplyConfiguration(new MessageRecipientMap());
             modelBuilder.ApplyConfiguration(new OrderEmailMap());
@@ -49,7 +49,7 @@ namespace Delirio.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new PaymentMachineMap());
             modelBuilder.ApplyConfiguration(new StoreMap());
 
-            modelBuilder.Entity<Customer>(c =>
+            modelBuilder.Entity<Client>(c =>
             {
                 c.ToTable("Customers");
             });

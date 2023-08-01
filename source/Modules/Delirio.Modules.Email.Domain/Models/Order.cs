@@ -6,13 +6,13 @@ namespace Delirio.Modules.Email.Domain.Models
     {
         private IList<Store> _stores;
         
-        private IList<Customer> _customers;
+        private IList<Client> _clients;
         
         public Order()
         {
             Id = Id;
             _stores = new List<Store>();
-            _customers = new List<Customer>();
+            _clients = new List<Client>();
             
 
         }
@@ -23,7 +23,7 @@ namespace Delirio.Modules.Email.Domain.Models
 
         
         
-        public Customer Customer { get; private set; }
+        public Client Client { get; private set; }
 
         public Store Store { get; private set; }
 
@@ -34,7 +34,7 @@ namespace Delirio.Modules.Email.Domain.Models
 
 
 
-        public IReadOnlyCollection<Customer> Customers { get { return _customers.ToArray(); } }
+        public IReadOnlyCollection<Client> Clients { get { return _clients.ToArray(); } }
         
         public DateTime OrderDate { get; private set; }
 
