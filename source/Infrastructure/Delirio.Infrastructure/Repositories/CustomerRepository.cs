@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Delirio.Infrastructure.Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : IClientRepository
     {
         protected readonly MailDbContext Db;
         protected readonly DbSet<Customer> DbSet;
