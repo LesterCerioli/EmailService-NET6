@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delirio.Modules.Email.Application.Handlers.Order_Email_Context.Responses
+namespace Delirio.Modules.Email.Application.Handlers.Order_Email_Context.Requests
 {
-    internal class SampleClass
+    internal class CheckOrderEmailExistsByCpfRequest
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delirio.Modules.Email.Application.Handlers.Message_Recipient_Context.Responses
+namespace Delirio.Modules.Email.Application.Handlers.Payment_Machine_Context
 {
-    internal class SampleClass
+    public class CheckPaymentMachineExistsByCpfHandler
     {
     }
 }
