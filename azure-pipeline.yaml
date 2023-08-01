@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- develop
+- architecture/101
 
 jobs:
 
@@ -35,7 +35,7 @@ jobs:
       summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml  
 - job: LinuxRelease
   pool:
-    name: 'DS11'
+    name: 'DS12'
   variables:
     buildConfiguration: 'Release'
   steps:
