@@ -3,11 +3,11 @@ using NetDevPack.Domain;
 
 namespace Delirio.Modules.Email.Domain.Models
 {
-    public class Customer : Entity, IAggregateRoot
+    public class Client : Entity, IAggregateRoot
     {
         private readonly List<Order> _orders = new List<Order>();
 
-        public Customer(string? customerFirstName, 
+        public Client(string? customerFirstName, 
             string? customerMiddleName, string? customerLastName, 
             Cpf cpf, DataLog2 dataLog, string? email)
         {
@@ -19,6 +19,8 @@ namespace Delirio.Modules.Email.Domain.Models
             Email = email;
             _orders = new List<Order>();
         }
+
+        public Client() { }
 
         public string?  CustomerFirstName { get; set; }
 

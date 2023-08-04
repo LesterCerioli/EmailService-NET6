@@ -4,13 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+- develop
 
 jobs:
 
 - job: Linux
   pool:
-    name: 'DS11'
+    name: 'DS12'
   steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core sdk'
@@ -35,7 +35,7 @@ jobs:
       summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml  
 - job: LinuxRelease
   pool:
-    name: 'DS11'
+    name: 'DS12'
   variables:
     buildConfiguration: 'Release'
   steps:

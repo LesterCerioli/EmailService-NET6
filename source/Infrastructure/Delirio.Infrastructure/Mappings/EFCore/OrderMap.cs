@@ -17,7 +17,7 @@ namespace Delirio.Infrastructure.Mappings.EFCore
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
 
-            builder.HasOne(o => o.Customer)
+            builder.HasOne(o => o.Client)
                 .WithMany()
                 .HasForeignKey(o => o.CustomerId)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -27,7 +27,7 @@ namespace Delirio.Infrastructure.Mappings.EFCore
                 .HasForeignKey(o => o.StoreId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(o => o.Customers)
+            builder.HasMany(o => o.Clients)
                 .WithOne()
                 .HasForeignKey("OrderId")
                 .OnDelete(DeleteBehavior.Cascade);

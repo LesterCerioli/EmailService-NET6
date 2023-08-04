@@ -15,7 +15,7 @@ namespace Delirio.Infrastructure.CrossCutting
         public static void RegisterServices(IServiceCollection services)
         {
             // Infrastructure
-            services.AddScoped<ICustomerRepository>();
+            services.AddScoped<IClientRepository>();
             services.AddScoped<MessageQueueRepository>();
             services.AddScoped<MessageRecipientRepository>();
             services.AddScoped<OrderEmailRepository>();
