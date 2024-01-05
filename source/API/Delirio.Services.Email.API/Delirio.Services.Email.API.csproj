@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Delirio.Modules.Email.Application\Delirio.Modules.Email.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Delirio.Infrastructure.CrossCutting\Delirio.Infrastructure.CrossCutting.csproj" />
+    <ProjectReference Include="..\..\Workers\Delirio.Workers.Email\Delirio.Workers.Email.csproj" />
   </ItemGroup>
 
 </Project>
