@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Delirio.Modules.Email.Application\Delirio.Modules.Email.Application.csproj" />
+  </ItemGroup>
 </Project>
